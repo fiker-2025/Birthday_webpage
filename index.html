@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Esubaa</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-image: url('tim.jpg.jpg'); /* Custom background image */
+            background-size: cover;
+            background-position: center;
+            color: white; /* Ensure text is visible against background */
+        }
+        .birthday-message {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+        .click-messages {
+            margin-top: 20px;
+        }
+        .click-message {
+            font-size: 20px;
+            font-weight: bold;
+            color: yellow;
+            margin: 10px;
+        }
+        .wishes p {
+            font-size: 24px;
+            color: yellow; /* Make text stand out */
+            margin-top: 20px;
+            font-weight: bold;
+            animation: dance 0.5s infinite alternate;
+        }
+        @keyframes dance {
+            0% { transform: rotate(-5deg); }
+            100% { transform: rotate(5deg); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Happy Birthday, Esubaa! 🎉</h1>
+    <div class="birthday-message">Wishing you a fantastic year ahead!</div>
+    
+    <div class="click-messages">
+        <div class="click-message">Click me! 😊</div>
+        <div class="click-message">again 😊</div>
+        <div class="click-message">again 😊</div>
+        <div class="click-message">Hit me up! 🔥</div>
+    </div>
+    
+    <div class="wishes" id="wishes"></div>
+    
+    <audio id="clickSound" src="AA.birthday.m4a"></audio>
+    <audio id="birthdaySound" src="AA.birthday.m4a" autoplay></audio>
+    
+    <script>
+        let wishIndex = 0;
+        const wishes = [
+            "🎁 Love from MOM! Wishing you all the happiness in the world..አግባ! አግባ! አግባ!",
+            "🎁 Best wishes from DAD! May you achieve all your dreams!",
+            "🎁 Hugs from BROTHER! Have an amazing birthday!",
+            "🎁 Lots of love from SISTERS! Enjoy your special day!"
+        ];
+        
+        function showWishes() {
+            if (wishIndex < wishes.length) {
+                let wishElement = document.createElement('p');
+                wishElement.innerText = wishes[wishIndex];
+                wishElement.style.animation = 'dance 0.5s infinite alternate';
+                document.getElementById('wishes').appendChild(wishElement);
+                
+                setTimeout(() => {
+                    wishElement.style.animation = 'none';
+                }, 2000); // Stop dancing after 2 seconds
+                
+                wishIndex++;
+            }
+            document.getElementById('clickSound').play();
+        }
+        
+        document.body.addEventListener('click', showWishes);
+    </script>
+</body>
+</html>
